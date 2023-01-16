@@ -4,20 +4,20 @@
  * binary_tree_insert_left - function that inserts a node
  * @parent: parent node
  * @value: value to store in the new node
- *
+ * Return: binary_tree_t *
  */
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
-    binary_tree_t *node = binary_tree_node(parent, value);
-    if (!node)
-        return (NULL);
+	binary_tree_t *node = binary_tree_node(parent, value);
 
-    if (parent->left)
-    {
-        node->left = parent->left;
-        node->left->parent = node;
-    }
-    parent->left = node;
+	if (!node || !parent)
+		return (NULL);
 
-    return (parent);
+	if (parent->left)
+	{
+		node->left = parent->left;
+		node->left->parent = node;
+	}
+	parent->left = node;
+	return (parent);
 }
